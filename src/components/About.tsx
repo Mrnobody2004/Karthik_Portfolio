@@ -1,3 +1,5 @@
+import Logo from '../Logo.png';
+
 // React import is handled by JSX transform
 
 const About = () => {
@@ -9,7 +11,7 @@ const About = () => {
         
         <div className="about-content">
           <div className="about-image">
-          <img src="/Logo.png" alt="Karthik Reddy Padhira" />
+          <img src={Logo} alt="Karthik Reddy Padhira" />
           </div>
           
           <div className="about-text">

@@ -1,7 +1,5 @@
-// React import is handled by JSX transform
 
 const Experience = () => {
-  // Use useEffect to animate timeline items on scroll in the actual implementation
   
   return (
     <section id="experience" className="section experience">
@@ -10,7 +8,6 @@ const Experience = () => {
         <p className="section-subtitle">My journey in the tech industry</p>
         
         <div className="timeline">
-          {/* Technizee Experience - Featured */}
           <div className="timeline-item animate">
             <div className="timeline-card featured">
               <h3 className="timeline-title">Machine Learning Data Engineer Intern</h3>
@@ -35,7 +32,6 @@ const Experience = () => {
             </div>
           </div>
           
-          {/* Java Development Intern */}
           <div className="timeline-item animate">
             <div className="timeline-card">
               <h3 className="timeline-title">Java Development Intern</h3>
@@ -59,7 +55,6 @@ const Experience = () => {
             </div>
           </div>
           
-          {/* Machine Learning Intern */}
           <div className="timeline-item animate">
             <div className="timeline-card">
               <h3 className="timeline-title">Machine Learning Intern</h3>

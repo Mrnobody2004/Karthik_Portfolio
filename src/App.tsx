@@ -9,6 +9,14 @@ import Certifications from './components/Certifications';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
+function LoadingSpinner() {
+  return (
+    <div className="loading">
+      <div className="loading-spinner"></div>
+    </div>
+  );
+}
+
 function App() {
   const [darkMode, setDarkMode] = useState(() => {
     if (typeof window !== 'undefined') {
@@ -16,6 +24,8 @@ function App() {
     }
     return false;
   });
+
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     if (darkMode) {
@@ -75,24 +85,16 @@ function App() {
       }
     };
 
-    const loading = document.createElement('div');
-    loading.className = 'loading';
-    loading.innerHTML = '<div class="loading-spinner"></div>';
-    document.body.appendChild(loading);
-
-    const hideLoading = () => {
+    const onLoad = () => {
       setTimeout(() => {
-        loading.classList.add('hidden');
-        setTimeout(() => {
-          loading.remove();
-        }, 500);
+        setLoading(false);
       }, 1000);
     };
 
     if (document.readyState === 'complete') {
-      hideLoading();
+      onLoad();
     } else {
-      window.addEventListener('load', hideLoading);
+      window.addEventListener('load', onLoad);
     }
 
     window.addEventListener('scroll', animateOnScroll);
@@ -111,7 +113,7 @@ function App() {
 
     return () => {
       window.removeEventListener('scroll', animateOnScroll);
-      window.removeEventListener('load', hideLoading);
+      window.removeEventListener('load', onLoad);
     };
   }, []);
 
@@ -120,31 +122,34 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <div className="dark-mode-toggle" onClick={toggleDarkMode} style={{ cursor: 'pointer' }}>
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <circle cx="12" cy="12" r="5"></circle>
-          <line x1="12" y1="1" x2="12" y2="3"></line>
-          <line x1="12" y1="21" x2="12" y2="23"></line>
-          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-          <line x1="1" y1="12" x2="3" y2="12"></line>
-          <line x1="21" y1="12" x2="23" y2="12"></line>
-          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-        </svg>
-      </div>
+    <>
+      {loading && <LoadingSpinner />}
+      <div className="App" style={{ display: loading ? 'none' : 'block' }}>
+        <div className="dark-mode-toggle" onClick={toggleDarkMode} style={{ cursor: 'pointer' }}>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+        </div>
 
-      <Header />
-      <About />
-      <Experience />
-      <Education />
-      <Skills />
-      <Projects />
-      <Certifications />
-      <Contact />
-      <Footer />
-    </div>
+        <Header />
+        <About />
+        <Experience />
+        <Education />
+        <Skills />
+        <Projects />
+        <Certifications />
+        <Contact />
+        <Footer />
+      </div>
+    </>
   );
 }
 

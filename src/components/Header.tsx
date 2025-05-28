@@ -1,3 +1,5 @@
+import HeaderImage from '../header.jpeg';
+
 // React import is handled by JSX transform
 
 const Header = () => {
@@ -23,7 +25,7 @@ const Header = () => {
       
       <div className="hero-content">
         <div className="hero-image">
-          <img src="/Users/karthikreddy/Desktop/source_package/header.jpeg" alt="LinkedIn_Pic" />
+          <img src={HeaderImage} alt="LinkedIn_Pic" />
         </div>
         
         <h1 className="hero-title">Karthik Reddy Padhira</h1>
