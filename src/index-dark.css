@@ -1,0 +1,15 @@
+.dark-mode {
+  --primary: #5c93e8;
+  --primary-dark: #4a86e8;
+  --secondary: #2d3436;
+  --accent: #a29bfe;
+  --accent-light: #6c5ce7;
+  --text-dark: #f9f9f9;
+  --text-light: #f9f9f9;
+  --text-muted: #a4b0be;
+  --background-light: #1e272e;
+  --background-off: #2d3436;
+  --shadow-sm: 0 2px 5px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 10px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
