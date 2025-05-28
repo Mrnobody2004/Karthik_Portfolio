@@ -4,7 +4,6 @@ const Header = () => {
   return (
     <header className="hero">
       <div className="hero-particles">
-        {/* Particles will be added with JavaScript */}
         {Array.from({ length: 15 }).map((_, index) => (
           <div 
             key={index}
@@ -24,8 +23,7 @@ const Header = () => {
       
       <div className="hero-content">
         <div className="hero-image">
-          {/* Placeholder for profile image */}
-          <img src="/WhatsApp Image 2025-03-02 at 21.33.40 (2).jpeg" alt="Karthik Reddy Padhira" />
+          <img src="/Users/karthikreddy/Desktop/source_package/header.jpeg" alt="LinkedIn_Pic" />
         </div>
         
         <h1 className="hero-title">Karthik Reddy Padhira</h1>
