@@ -1,5 +1,36 @@
+import { useEffect, useRef } from 'react';
+import '../styles/Experience.css';
 
 const Experience = () => {
+  const timelineRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const timelineItems = entry.target.querySelectorAll('.timeline-item');
+            timelineItems.forEach((item, index) => {
+              setTimeout(() => {
+                item.classList.add('animate');
+              }, index * 300);
+            });
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    if (timelineRef.current) {
+      observer.observe(timelineRef.current);
+    }
+
+    return () => {
+      if (timelineRef.current) {
+        observer.unobserve(timelineRef.current);
+      }
+    };
+  }, []);
   
   return (
     <section id="experience" className="section experience">
@@ -7,14 +38,14 @@ const Experience = () => {
         <h2 className="section-title">Professional Experience</h2>
         <p className="section-subtitle">My journey in the tech industry</p>
         
-        <div className="timeline">
-          <div className="timeline-item animate">
+        <div className="timeline" ref={timelineRef}>
+          <div className="timeline-item">
             <div className="timeline-card featured">
               <h3 className="timeline-title">Machine Learning Data Engineer Intern</h3>
               <h4 className="timeline-subtitle">Technizee Pvt Ltd</h4>
               
               <div className="timeline-meta">
-                <span>May 2025 - Present</span>
+                <span>May 2023 - Present</span>
                 <span>Remote</span>
               </div>
               
@@ -32,13 +63,13 @@ const Experience = () => {
             </div>
           </div>
           
-          <div className="timeline-item animate">
+          <div className="timeline-item">
             <div className="timeline-card">
               <h3 className="timeline-title">Java Development Intern</h3>
               <h4 className="timeline-subtitle">Cognifyz Technologies</h4>
               
               <div className="timeline-meta">
-                <span>Sep - Oct 2024</span>
+                <span>Sep - Oct 2023</span>
                 <span>Online</span>
               </div>
               
@@ -55,13 +86,13 @@ const Experience = () => {
             </div>
           </div>
           
-          <div className="timeline-item animate">
+          <div className="timeline-item">
             <div className="timeline-card">
               <h3 className="timeline-title">Machine Learning Intern</h3>
               <h4 className="timeline-subtitle">Slash Mark IT Solutions</h4>
               
               <div className="timeline-meta">
-                <span>May - Jul 2024</span>
+                <span>May - Jul 2023</span>
                 <span>Online</span>
               </div>
               

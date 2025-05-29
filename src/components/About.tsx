@@ -1,17 +1,52 @@
+import { useEffect, useRef } from 'react';
 import Logo from '../Logo.png';
-
-// React import is handled by JSX transform
+import '../styles/About.css';
 
 const About = () => {
+  const aboutRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const paragraphs = entry.target.querySelectorAll('p');
+            paragraphs.forEach((p, index) => {
+              setTimeout(() => {
+                p.classList.add('animate');
+              }, index * 200);
+            });
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    if (aboutRef.current) {
+      observer.observe(aboutRef.current);
+    }
+
+    return () => {
+      if (aboutRef.current) {
+        observer.unobserve(aboutRef.current);
+      }
+    };
+  }, []);
+
   return (
     <section id="about" className="section about">
+      {/* Floating shapes for background effect */}
+      <div className="floating-shape circle shape1"></div>
+      <div className="floating-shape square shape2"></div>
+      <div className="floating-shape triangle shape3"></div>
+      
       <div className="container">
         <h2 className="section-title">About Me</h2>
         <p className="section-subtitle">Passionate about AI, Machine Learning, and creating impactful solutions</p>
         
-        <div className="about-content">
+        <div className="about-content" ref={aboutRef}>
           <div className="about-image">
-          <img src={Logo} alt="Karthik Reddy Padhira" />
+            <img src={Logo} alt="Karthik Reddy Padhira Logo" loading="lazy" />
           </div>
           
           <div className="about-text">
