@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import FlipCard from './ui/FlipCard';
 import '../styles/FlipCard.css';
 

@@ -7,7 +7,7 @@ const useSmoothScroll = () => {
     
     // Add click event listener to each anchor link
     anchorLinks.forEach(link => {
-      link.addEventListener('click', function(e) {
+      link.addEventListener('click', function(this: HTMLAnchorElement, e: Event) {
         e.preventDefault();
         
         // Get the target section
@@ -30,7 +30,7 @@ const useSmoothScroll = () => {
     return () => {
       // Clean up event listeners
       anchorLinks.forEach(link => {
-        link.removeEventListener('click', function(e) {});
+        link.removeEventListener('click', function() {});
       });
     };
   }, []);
