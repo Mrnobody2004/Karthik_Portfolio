@@ -17,8 +17,9 @@ const useSmoothScroll = () => {
           
           if (targetSection) {
             // Scroll smoothly to the target section
+            const top = targetSection.getBoundingClientRect().top + window.scrollY;
             window.scrollTo({
-              top: targetSection.offsetTop,
+              top,
               behavior: 'smooth'
             });
             
