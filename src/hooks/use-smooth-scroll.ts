@@ -12,17 +12,19 @@ const useSmoothScroll = () => {
         
         // Get the target section
         const targetId = this.getAttribute('href');
-        const targetSection = document.querySelector(targetId);
-        
-        if (targetSection) {
-          // Scroll smoothly to the target section
-          window.scrollTo({
-            top: targetSection.offsetTop,
-            behavior: 'smooth'
-          });
+        if (targetId) {
+          const targetSection = document.querySelector(targetId);
           
-          // Update URL without page reload
-          history.pushState(null, '', targetId);
+          if (targetSection) {
+            // Scroll smoothly to the target section
+            window.scrollTo({
+              top: targetSection.offsetTop,
+              behavior: 'smooth'
+            });
+            
+            // Update URL without page reload
+            history.pushState(null, '', targetId);
+          }
         }
       });
     });
