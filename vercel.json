@@ -1,3 +1,6 @@
 {
-  "buildCommand": "./build.sh"
+  "buildCommand": "rm -rf src/components/ui && rm -rf src/hooks/use-toast.ts && npm run build",
+  "installCommand": "npm install --legacy-peer-deps",
+  "framework": "vite",
+  "outputDirectory": "dist"
 }
