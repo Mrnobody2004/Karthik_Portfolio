@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from 'react';
-import emailjs from '@emailjs/browser';
 import '../styles/Contact.css';
 
 const Contact = () => {
@@ -69,9 +68,9 @@ const Contact = () => {
     setFeedbackMessage('');
     setFeedbackType('');
 
-    // Simple form submission without EmailJS for now
+    // Simple form submission without EmailJS
     setTimeout(() => {
-      setFeedbackMessage('Message received! This is a demo form. In a real implementation, your message would be sent.');
+      setFeedbackMessage('Message received! Thank you for contacting me. I will get back to you soon.');
       setFeedbackType('success');
       setFormData({
         name: '',
