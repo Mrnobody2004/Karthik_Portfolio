@@ -1,87 +1,117 @@
-/* Add these styles to your existing CSS */
-
-/* Flip Card Styles */
-.flip-card {
-  background-color: transparent;
-  perspective: 1000px;
-  cursor: pointer;
-  height: 100%;
+/* Base styles */
+:root {
+  --primary: #4a6cf7;
+  --primary-light: #6c8dff;
+  --primary-dark: #3a56c5;
+  --secondary: #f9f9f9;
+  --accent: #a29bfe;
+  --accent-light: #c3beff;
+  --text-main: #333333;
+  --text-secondary: #555555;
+  --text-light: #777777;
+  --text-muted: #999999;
+  --background-light: #ffffff;
+  --background-off: #f5f5f5;
+  --border-light: #e0e0e0;
+  --shadow-sm: 0 2px 5px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 10px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.15);
+  --bg-card: #ffffff;
 }
 
-.flip-card-inner {
+/* Dark mode variables */
+.dark-mode {
+  --primary: #5c93e8;
+  --primary-light: #7aa7f0;
+  --primary-dark: #4a86e8;
+  --secondary: #2d3436;
+  --accent: #a29bfe;
+  --accent-light: #6c5ce7;
+  --text-main: #f9f9f9;
+  --text-secondary: #e0e0e0;
+  --text-light: #cccccc;
+  --text-muted: #a4b0be;
+  --background-light: #1e272e;
+  --background-off: #2d3436;
+  --border-light: #3d4852;
+  --shadow-sm: 0 2px 5px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 10px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.4);
+  --bg-card: #2d3436;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--background-light);
+  color: var(--text-main);
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* Common styles */
+.section {
+  padding: 80px 0;
   position: relative;
+}
+
+.container {
   width: 100%;
-  height: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
   text-align: center;
-  transition: transform 0.6s;
-  transform-style: preserve-3d;
+  color: var(--text-main);
 }
 
-.flip-card.flipped .flip-card-inner {
-  transform: rotateY(180deg);
+.section-subtitle {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  margin-bottom: 3rem;
+  text-align: center;
 }
 
-.flip-card-front, .flip-card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 1.5rem;
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
-.flip-card-front {
-  background-color: var(--card-bg, #ffffff);
-  color: var(--text-color, #333333);
-}
-
-.flip-card-back {
-  background-color: var(--primary-color, #4a6cf7);
-  color: white;
-  transform: rotateY(180deg);
-}
-
-.certification-card {
-  height: 200px;
-}
-
-/* Skill bar without percentages */
-.skill-bar {
-  height: 8px;
-  background-color: var(--bg-light, #f0f0f0);
-  border-radius: 4px;
-  overflow: hidden;
-  margin-top: 8px;
-}
-
-.skill-progress {
-  height: 100%;
-  background-color: var(--primary-color, #4a6cf7);
-  border-radius: 4px;
-  transition: width 1s ease-in-out;
-}
-
-.skill-name {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 4px;
-}
-
-/* Certificate image */
-.certificate-image {
-  max-width: 100%;
-  max-height: 120px;
-  object-fit: contain;
-}
-
-.certificate-link {
-  margin-top: 10px;
-  color: white;
-  text-decoration: underline;
+/* Responsive */
+@media (max-width: 768px) {
+  .section {
+    padding: 60px 0;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .section-subtitle {
+    font-size: 1rem;
+  }
 }

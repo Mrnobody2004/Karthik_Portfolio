@@ -303,8 +303,8 @@
   background-color: rgba(42, 42, 42, 1);
 }
 
-/* Animated submit button */
-.form-button {
+/* Submit button styling */
+.submit-button {
   display: inline-block;
   padding: 0.8rem 2rem;
   background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
@@ -320,7 +320,7 @@
   z-index: 1;
 }
 
-.form-button::before {
+.submit-button::before {
   content: '';
   position: absolute;
   top: 0;
@@ -332,22 +332,27 @@
   z-index: -1;
 }
 
-.form-button:hover {
+.submit-button:hover {
   transform: translateY(-3px);
   box-shadow: var(--shadow-md);
 }
 
-.form-button:hover::before {
+.submit-button:hover::before {
   left: 100%;
 }
 
-.form-button:disabled {
+.submit-button:disabled {
   background: #ccc;
   cursor: not-allowed;
 }
 
-/* Animated feedback message */
-.form-feedback {
+.submit-button.sending {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+/* Feedback message styling */
+.feedback-message {
   margin-top: 1rem;
   padding: 0.8rem;
   border-radius: 5px;
@@ -357,13 +362,13 @@
   overflow: hidden;
 }
 
-.form-feedback.success {
+.feedback-message.success {
   background-color: rgba(46, 213, 115, 0.1);
   color: #2ed573;
   border-left: 3px solid #2ed573;
 }
 
-.form-feedback.error {
+.feedback-message.error {
   background-color: rgba(255, 71, 87, 0.1);
   color: #ff4757;
   border-left: 3px solid #ff4757;
