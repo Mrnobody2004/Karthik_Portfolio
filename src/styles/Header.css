@@ -1,3 +1,4 @@
+/* Modern Header with Animated Particles */
 .hero {
   min-height: 100vh;
   display: flex;
@@ -10,7 +11,6 @@
   color: white;
   padding: 2rem 0;
   transition: background 0.3s ease;
-  width: 100%;
 }
 
 .dark-mode .hero {
@@ -75,29 +75,12 @@
   text-align: center;
   max-width: 900px;
   padding: 0 2rem;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto;
-}
-
-/* Container for proper centering */
-.hero .container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
 }
 
 .hero-image {
   position: relative;
   margin-bottom: 2rem;
-  display: flex;
-  justify-content: center;
-  width: 100%;
+  display: inline-block;
 }
 
 .hero-image img {
@@ -138,8 +121,6 @@
   margin-bottom: 1rem;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
   animation: fadeIn 1s ease-out;
-  width: 100%;
-  text-align: center;
 }
 
 .hero-subtitle {
@@ -149,8 +130,6 @@
   opacity: 0.9;
   text-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   animation: fadeIn 1s ease-out 0.3s both;
-  width: 100%;
-  text-align: center;
 }
 
 .hero-text {
@@ -159,18 +138,11 @@
   font-size: 1.2rem;
   line-height: 1.6;
   animation: fadeIn 1s ease-out 0.6s both;
-  text-align: center;
-  width: 100%;
 }
 
 .hero-buttons {
   margin-bottom: 2.5rem;
   animation: fadeIn 1s ease-out 0.9s both;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  width: 100%;
-  gap: 1rem;
 }
 
 .btn {
@@ -226,7 +198,6 @@
   justify-content: center;
   gap: 1rem;
   animation: fadeIn 1s ease-out 1.2s both;
-  width: 100%;
 }
 
 .social-link {
@@ -314,37 +285,6 @@
   }
 }
 
-/* Spacey Logo Styling */
-.spacey-logo {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  z-index: 10;
-  animation: pulse 2s infinite alternate;
-}
-
-.spacey-logo img {
-  width: 60px;
-  height: 60px;
-  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.6));
-  transition: transform 0.3s ease;
-}
-
-.spacey-logo:hover img {
-  transform: rotate(20deg) scale(1.1);
-}
-
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-    opacity: 0.8;
-  }
-  100% {
-    transform: scale(1.05);
-    opacity: 1;
-  }
-}
-
 /* Responsive */
 @media (max-width: 768px) {
   .hero-title {
@@ -358,15 +298,5 @@
   .hero-image img {
     width: 150px;
     height: 150px;
-  }
-  
-  .spacey-logo {
-    top: 10px;
-    left: 10px;
-  }
-  
-  .spacey-logo img {
-    width: 50px;
-    height: 50px;
   }
 }
