@@ -1,9 +1,11 @@
 import HeaderImage from '../header.jpeg';
 import '../styles/Header.css';
+import '../styles/SpaceyLogo.css';
 
 const Header = () => {
   return (
     <header className="hero" id="home">
+      <div className="spacey-logo"></div>
       <div className="hero-particles">
         {Array.from({ length: 50 }).map((_, index) => (
           <div 
