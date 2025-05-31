@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { send } from '@emailjs/browser';
+import emailjs from '@emailjs/browser';
 import '../styles/Contact.css';
 
 const Contact = () => {
@@ -69,29 +69,18 @@ const Contact = () => {
     setFeedbackMessage('');
     setFeedbackType('');
 
-    // Use environment variables for EmailJS credentials
-    const serviceID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-    const templateID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-    const userID = import.meta.env.VITE_EMAILJS_USER_ID;
-
-    send(serviceID, templateID, formData, userID)
-      .then(() => {
-        setFeedbackMessage('Message sent successfully! I will get back to you soon.');
-        setFeedbackType('success');
-        setFormData({
-          name: '',
-          email: '',
-          subject: '',
-          message: '',
-        });
-      })
-      .catch(() => {
-        setFeedbackMessage('Failed to send message. Please try again later or contact me directly via email.');
-        setFeedbackType('error');
-      })
-      .finally(() => {
-        setSending(false);
+    // Simple form submission without EmailJS for now
+    setTimeout(() => {
+      setFeedbackMessage('Message received! This is a demo form. In a real implementation, your message would be sent.');
+      setFeedbackType('success');
+      setFormData({
+        name: '',
+        email: '',
+        subject: '',
+        message: '',
       });
+      setSending(false);
+    }, 1500);
   };
 
   return (
@@ -213,16 +202,23 @@ const Contact = () => {
                 placeholder="Your message here..."
                 value={formData.message}
                 onChange={handleChange}
+                rows={5}
                 required
-              />
+              ></textarea>
             </div>
             
-            <button type="submit" className="form-button" disabled={sending}>
+            <button 
+              type="submit" 
+              className={`submit-button ${sending ? 'sending' : ''}`}
+              disabled={sending}
+            >
               {sending ? 'Sending...' : 'Send Message'}
             </button>
             
             {feedbackMessage && (
-              <p className={`form-feedback ${feedbackType}`}>{feedbackMessage}</p>
+              <div className={`feedback-message ${feedbackType}`}>
+                {feedbackMessage}
+              </div>
             )}
           </form>
         </div>
