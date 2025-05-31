@@ -1,5 +1,6 @@
 import HeaderImage from '../header.jpeg';
 import '../styles/Header.css';
+import SpaceyLogo from '/spacey-logo.svg';
 
 const Header = () => {
   return (
@@ -23,6 +24,9 @@ const Header = () => {
       </div>
       
       <div className="hero-content">
+        <div className="spacey-logo">
+          <img src={SpaceyLogo} alt="Spacey Logo" width="60" height="60" />
+        </div>
         <div className="hero-image">
           <img src={HeaderImage} alt="Karthik Reddy Padhira" loading="eager" />
         </div>
